@@ -501,6 +501,7 @@ PlayerSettings:
   webGLLinkerTarget: 1
   webGLThreadsSupport: 0
   scriptingDefineSymbols:
+    1: ENABLE_PLAYFABSERVER_API
     13: ENABLE_PLAYFABSERVER_API;ENABLE_PLAYFABADMIN_API
     14: ENABLE_PLAYFABSERVER_API;ENABLE_PLAYFABADMIN_API
   platformArchitecture: {}
