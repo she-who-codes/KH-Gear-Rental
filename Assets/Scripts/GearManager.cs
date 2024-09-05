@@ -174,21 +174,32 @@ public class GearManager : MonoBehaviour
                 } 
                 else
                 {
+                    //see if it's already there with same data, do nothing
+                    //if it's already there with '0' data, then remove?
+
                     foreach (var item in result.Data)
                     {
+                        
                         Debug.Log(item.Key + "  " + item.Value);
                         //gearList.a
-                        var item_go = Instantiate(cellPrefab);
-                        // do something with the instantiated item -- for instance
-                        item_go.GetComponentInChildren<Text>().text = item.Value;
-                        //parent the item to the content container
-                        item_go.transform.SetParent(gearList);
-                        //reset the item's scale -- this can get munged with UI prefabs
-                        item_go.transform.localScale = Vector2.one;
-                        item_go.transform.localPosition = new Vector3(item_go.transform.position.x, item_go.transform.position.y, 0);
+                        if (item.Value.Length > 2)
+                        {
+                            var item_go = Instantiate(cellPrefab);
+                            // do something with the instantiated item -- for instance
+                            item_go.GetComponentInChildren<Text>().text = item.Value;
+                            item_go.name = item.Key;
+
+                            ProjectManager.instance.addGearItem(item.Key, item.Value);
+
+                            //parent the item to the content container
+                            item_go.transform.SetParent(gearList);
+                            //reset the item's scale -- this can get munged with UI prefabs
+                            item_go.transform.localScale = Vector2.one;
+                            item_go.transform.localPosition = new Vector3(item_go.transform.position.x, item_go.transform.position.y, 0);
+
+                        }
                     }
                     updatePlayerDataPublisher();
-                    // Debug.Log("MonsterName: " + result.Data["MonsterName"]);
 
                 }
             },
