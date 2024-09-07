@@ -5,19 +5,9 @@ using PlayFab;
 using PlayFab.ServerModels;
 using System;
 
-[System.Serializable]
-public enum SKATER_GEAR
-{
-    Helmet,
-    Gloves,
-    Shin_Pads,
-    Elbow_Pads,
-    Stick,
-    Skates
-}
 
 [System.Serializable]
-public enum GOALIE_GEAR
+public enum GOALIE_GEARZ
 {
     Helmet,
     Chest_Pad,
@@ -167,6 +157,14 @@ public class GearManager : MonoBehaviour
 
     public void ClientGetTitleData()
     {
+        foreach (Transform child in gearList.transform)
+        {
+            if (gearList.childCount > 0)
+            {
+                Destroy(child.gameObject);
+            }
+        }
+
         PlayFabClientAPI.GetTitleData(new PlayFab.ClientModels.GetTitleDataRequest(),
             result => {
                 if (result.Data == null)
@@ -188,9 +186,6 @@ public class GearManager : MonoBehaviour
                             // do something with the instantiated item -- for instance
                             item_go.GetComponentInChildren<Text>().text = item.Value;
                             item_go.name = item.Key;
-
-                            ProjectManager.instance.addGearItem(item.Key, item.Value);
-
                             //parent the item to the content container
                             item_go.transform.SetParent(gearList);
                             //reset the item's scale -- this can get munged with UI prefabs

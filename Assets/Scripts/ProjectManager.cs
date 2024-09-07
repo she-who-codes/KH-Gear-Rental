@@ -4,24 +4,11 @@ using UnityEngine;
 using PlayFab;
 using PlayFab.ClientModels;
 
-[System.Serializable]
-public class GearItem
-{
-    public string name;
-    public string value;
-
-}
 public class ProjectManager : MonoBehaviour
 {
     public static ProjectManager instance;
     public StoreInventory inventory;
-
     public string playfabID;
-
-    //public Dictionary<string, string> gearList = new Dictionary<string, string>();
-    public List<GearItem> gearList = new List<GearItem>();
-
-
 
     private void SingletonFunction()
     {
@@ -44,37 +31,7 @@ public class ProjectManager : MonoBehaviour
     void Start()
     {
     }
-
-    public void addGearItem(string key, string value)
-    {
-        GearItem item = new GearItem();
-        item.name = key;
-        item.value = value;
-
-        /*if (gearList.Contains(item))
-        {
-            if (gearList[item].value.CompareTo(value) != 0)
-            {
-                gearList[item].value = value;
-            }
-            //string oldValue = gearList[item].value;
-            if (oldValue.CompareTo(value) != 0)
-            {
-                oldValue = value;
-            }
-        }
-        else
-        {           
-
-            gearList.Add(item);
-        }*/
-
-        //ProjectManager.instance.gearList.Add(item.Key, item.Value);
-        /*foreach (KeyValuePair<string, string> entry in gearList)
-            {
-
-            }*/
-    }
+    
 
     //grant an item to a player when rented
     //revoke the item when returned
@@ -87,7 +44,6 @@ public class ProjectManager : MonoBehaviour
 
     //coaches can view kid & gear assigned
     //one admin for adjusting gear, adjusting players
-    //August 9th doing inventory
 
     /*
     * Use "Title Data" to log gear Categories //ex:"brand : bauer", "helmet size : 1", "gear type : helmets"

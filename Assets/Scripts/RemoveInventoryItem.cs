@@ -26,7 +26,14 @@ public class RemoveInventoryItem : MonoBehaviour
             result =>
             {
                 Debug.Log("Set titleData successful");
-                gameObject.transform.parent.transform.parent.transform.parent.GetComponentInParent<GearManager>().ClientGetTitleData();
+                if (gameObject.transform.parent.transform.parent.transform.parent.GetComponentInParent<GoalieGearManager>() != null)
+                {
+                    gameObject.transform.parent.transform.parent.transform.parent.GetComponentInParent<GoalieGearManager>().ClientGetTitleData();
+                }
+                else if (gameObject.transform.parent.transform.parent.transform.parent.GetComponentInParent<SkaterGearManager>() != null)
+                {
+                    gameObject.transform.parent.transform.parent.transform.parent.GetComponentInParent<SkaterGearManager>().ClientGetTitleData();
+                }
             },
             error => {
                 Debug.Log("Got error setting titleData:");
