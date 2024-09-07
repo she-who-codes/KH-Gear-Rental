@@ -6,6 +6,6 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/QRReaderScene.unity
-    guid: 895d79c39f181ea4fbe1baf8ade4b2af
+    path: Assets/Scenes/bLAKEtESTsCENE.unity
+    guid: d96af000778cb5b4990e50a6aad5382a
   m_configObjects: {}

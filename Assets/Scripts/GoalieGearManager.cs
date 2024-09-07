@@ -68,10 +68,7 @@ public class GoalieGearManager : MonoBehaviour
 
     }
 
-    public void DropdownValueChanged(Text change)
-    {
-        gearType = "New Value : " + change.text;
-    }
+     
     public void updateGearType(Text type)
     {
         gearType = type.text;
