@@ -58,7 +58,6 @@
      <Compile Include="Assets\Scripts\AthleteProfile.cs" />
      <Compile Include="Assets\Scripts\EditAthlete.cs" />
      <Compile Include="Assets\Scripts\GearInventory.cs" />
-     <Compile Include="Assets\Scripts\GearManager.cs" />
      <Compile Include="Assets\Scripts\GoalieGearManager.cs" />
      <Compile Include="Assets\Scripts\PlayerScrollView.cs" />
      <Compile Include="Assets\Scripts\PlayfabInit.cs" />
