@@ -10,8 +10,7 @@ public class AthleteManager : MonoBehaviour
     public Transform playerList;
     public GameObject cellPrefab;
 
-    public Text newPlayerName;
-    string playerName;
+    public GameObject editAthleteUI;
     //create a person
     //assign/revoke rental goalie gear
     //assign/revoke rental skater gear
@@ -25,18 +24,16 @@ public class AthleteManager : MonoBehaviour
         ClientGetUserTitleData();
     }
 
-    public void _updatePlayerName(Text type)
+    public void _clickedEditAthlete(string player, string team)
     {
-        playerName = type.text;
-
+        Debug.Log("Player: " + player);
+        editAthleteUI.SetActive(true);
+        editAthleteUI.GetComponent<AthleteProfile>().SendData(player, team);
+        gameObject.SetActive(false);
     }
 
-    //UpdatePlayerDataTitle
-    public void _submitNewAthlete()
+    void ClientGetUserTitleData()
     {
-        string key = playerName;
-        string value = playerName;
-
         foreach (Transform child in playerList.transform)
         {
             if (playerList.childCount > 0)
@@ -44,34 +41,6 @@ public class AthleteManager : MonoBehaviour
                 Destroy(child.gameObject);
             }
         }
-
-        PlayFabClientAPI.UpdateUserData(
-            // Request
-            new PlayFab.ClientModels.UpdateUserDataRequest
-            {
-                Permission = PlayFab.ClientModels.UserDataPermission.Public,
-                Data = new Dictionary<string, string>() { { key, value } }
-
-            },
-            // Success
-            (PlayFab.ClientModels.UpdateUserDataResult response) =>
-            {
-                Debug.Log("UpdateUserData completed.");
-                //get new catalog and print it ,add to list view and allow deletion
-            },
-            // Failure
-            (PlayFabError error) =>
-            {
-                Debug.LogError("UpdateUserData failed.");
-                Debug.LogError(error.GenerateErrorReport());
-            }
-            );
-
-        ClientGetUserTitleData();
-    }
-
-    void ClientGetUserTitleData()
-    {
 
         PlayFabClientAPI.GetUserData(new GetUserDataRequest()
         {
@@ -83,21 +52,39 @@ public class AthleteManager : MonoBehaviour
             if (result.Data == null) { Debug.Log("No Key"); }
             else
             {
-
-                foreach (var item in result.Data)
+                string[] getKeys = new string[result.Data.Keys.Count];
+                result.Data.Keys.CopyTo(getKeys, 0);
+                for (int i = 0; i < getKeys.Length; i++)
                 {
+                    Debug.Log("Key: " + getKeys[i] + "/ Data: " + result.Data[getKeys[i]].Value);
+                    var item_go = Instantiate(cellPrefab);
+                    // do something with the instantiated item -- for instance
+                    item_go.GetComponentsInChildren<Text>()[0].text = getKeys[i];
+                    item_go.GetComponentsInChildren<Text>()[1].text = result.Data[getKeys[i]].Value;
+                    item_go.name = getKeys[i];
+                    //parent the item to the content container
+                    item_go.transform.SetParent(playerList);
+                    //reset the item's scale -- this can get munged with UI prefabs
+                    item_go.transform.localScale = Vector2.one;
+                    item_go.transform.localPosition = new Vector3(item_go.transform.position.x, item_go.transform.position.y, 0);
 
+                }
+
+                /*foreach (var item in result.Data)
+                {
+                    
                     Debug.Log(item.Key + "  " + item.Value);
                     var item_go = Instantiate(cellPrefab);
                     // do something with the instantiated item -- for instance
-                    item_go.GetComponentInChildren<Text>().text = item.Key;
+                    item_go.GetComponentsInChildren<Text>()[0].text = item.Key;
+                    item_go.GetComponentsInChildren<Text>()[1].text = item.Value.ToString();
                     item_go.name = item.Key;
                     //parent the item to the content container
                     item_go.transform.SetParent(playerList);
                     //reset the item's scale -- this can get munged with UI prefabs
                     item_go.transform.localScale = Vector2.one;
                     item_go.transform.localPosition = new Vector3(item_go.transform.position.x, item_go.transform.position.y, 0);
-                }
+                }*/
             }
 
             

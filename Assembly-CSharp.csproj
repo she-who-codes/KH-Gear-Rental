@@ -53,6 +53,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Scripts\AddAthlete.cs" />
      <Compile Include="Assets\Scripts\AdminLogIn.cs" />
      <Compile Include="Assets\Scripts\AthleteManager.cs" />
      <Compile Include="Assets\Scripts\AthleteProfile.cs" />
