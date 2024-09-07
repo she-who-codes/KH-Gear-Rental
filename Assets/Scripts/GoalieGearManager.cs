@@ -129,7 +129,7 @@ public class GoalieGearManager : MonoBehaviour
                     foreach (var item in result.Data)
                     {
 
-                        Debug.Log(item.Key + "  " + item.Value);
+                       // Debug.Log(item.Key + "  " + item.Value);
                         //gearList.a
                         if (item.Value.Length > 2)
                         {

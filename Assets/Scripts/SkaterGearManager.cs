@@ -64,11 +64,7 @@ public class SkaterGearManager : MonoBehaviour
     {
 
     }
-
-    public void DropdownValueChanged(Text change)
-    {
-        gearType = "New Value : " + change.text;
-    }
+    
     public void updateGearType(Text type)
     {
         gearType = type.text;
@@ -131,7 +127,7 @@ public class SkaterGearManager : MonoBehaviour
                     foreach (var item in result.Data)
                     {
 
-                        Debug.Log(item.Key + "  " + item.Value);
+                       // Debug.Log(item.Key + "  " + item.Value);
                         //gearList.a
                         if (item.Value.Length > 2)
                         {
