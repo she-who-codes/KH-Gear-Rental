@@ -5,12 +5,45 @@ using UnityEngine.UI;
 using PlayFab;
 using PlayFab.ClientModels;
 
+[System.Serializable]
+public enum YOUTH_TEAMS
+{
+    Unassigned,
+    Gators,
+    Otters,
+    Piranhas,
+    Narwhals,
+    Sharks,
+    Stingrays,
+    Kraken,
+    Walrus,
+    Eels,
+    Puffins
+}
+
 public class ProjectManager : MonoBehaviour
 {
     public static ProjectManager instance;
     public string playfabID;
     public string VersionID = "0.69";
     public Text versionText;
+
+    static List<string> m_TeamDropDownList = new List<string>
+    {
+        "Unassigned",
+        "Gators",
+        "Otters",
+        "Piranhas",
+        "Narwhals",
+        "Sharks",
+        "Stingrays",
+        "Kraken",
+        "Walrus",
+        "Eels",
+        "Puffins"
+    };
+
+    public Dropdown[] allTeamdowns;
 
     private void SingletonFunction()
     {
@@ -33,6 +66,14 @@ public class ProjectManager : MonoBehaviour
     void Start()
     {
        versionText.text = "Kyle Hockey Gear Manager " + VersionID;
+
+        for (int i = 0; i < allTeamdowns.Length; i ++)
+        {
+            allTeamdowns[i].ClearOptions();
+            //Add the options created in the List above
+            allTeamdowns[i].AddOptions(m_TeamDropDownList);
+        }
+
     }
     
     //change player's team **

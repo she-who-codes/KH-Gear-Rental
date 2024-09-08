@@ -32,7 +32,7 @@ public class AddAthlete : MonoBehaviour
     {
         string key = playerName;
         string value = teamName;
-        Debug.Log("Add Player: " + key + " : " + value);
+        //Debug.Log("Add Player: " + key + " : " + value);
        
 
         PlayFabClientAPI.UpdateUserData(

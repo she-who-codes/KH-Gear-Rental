@@ -18,9 +18,11 @@ public class AthleteProfile : MonoBehaviour
     public Transform skaterGearList;
     public GameObject skaterGearCellPrefab;
 
-
     public Transform goalieGearList;
     public GameObject goalieGearCellPrefab;
+
+    string teamName;
+
     void OnEnable()
     {
         ClientGetTitleData();
@@ -33,24 +35,62 @@ public class AthleteProfile : MonoBehaviour
 
     }
 
+    public void _updateTeamName(Text type)
+    {
+        teamName = type.text;
+    }
+
+    public void _ClickUpdateTeam()
+    {
+        //send team to player's profile
+        //Debug.Log(playerName.text + " : " + teamName);
+        string key = playerName.text;
+        string value = teamName;
+        //Debug.Log("Add Player: " + key + " : " + value);
+
+
+        PlayFabClientAPI.UpdateUserData(
+            // Request
+            new PlayFab.ClientModels.UpdateUserDataRequest
+            {
+                Permission = PlayFab.ClientModels.UserDataPermission.Public,
+                Data = new Dictionary<string, string>() { { key, value } }
+
+            },
+            // Success
+            (PlayFab.ClientModels.UpdateUserDataResult response) =>
+            {
+                Debug.Log("UpdateUserData completed.");
+                
+                //get new catalog and print it ,add to list view and allow deletion
+            },
+            // Failure
+            (PlayFabError error) =>
+            {
+                Debug.LogError("UpdateUserData failed.");
+                Debug.LogError(error.GenerateErrorReport());
+            }
+            );
+    }
+
     public void SendData(string name, string team)
     {
         playerName.text = name;
 
         int i = 0;
+
         foreach (Dropdown.OptionData option in teamDropdown.options)
         {
-
             if (option.text.CompareTo(team) == 0)
             {
                 teamDropdown.value = i;
                 break;
             }
             i++;
-            Debug.Log(option.text);
+            //Debug.Log(option.text);
         }
 
-        Debug.Log(name + team);
+        //Debug.Log(name + team);
     }
 
     public void ClientGetTitleData()
