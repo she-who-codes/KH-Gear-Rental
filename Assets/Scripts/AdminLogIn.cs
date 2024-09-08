@@ -7,6 +7,8 @@ public class AdminLogIn : MonoBehaviour
 {
     public string tempPin = "2334";
     public GameObject adminPanel;
+    public GameObject launchView;
+    public GameObject passwordView;
     public Text pincodeText;
 
     // Start is called before the first frame update
@@ -20,6 +22,8 @@ public class AdminLogIn : MonoBehaviour
         if (enteredCode.text.CompareTo(tempPin) == 0)
         {
             adminPanel.SetActive(true);
+            passwordView.SetActive(false);
+            launchView.SetActive(false);
         }
     }
 }

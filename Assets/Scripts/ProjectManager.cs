@@ -7,7 +7,6 @@ using PlayFab.ClientModels;
 public class ProjectManager : MonoBehaviour
 {
     public static ProjectManager instance;
-    public StoreInventory inventory;
     public string playfabID;
 
     private void SingletonFunction()

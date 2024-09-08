@@ -84,17 +84,7 @@ public class PlayfabInit : MonoBehaviour
                        if (result.Inventory[i].CustomData != null)
                        {
 
-                           var equippedData = result.Inventory[i].CustomData["equipped"];
-
-                           if (equippedData.CompareTo("true") == 0)
-                           {
-                              
-                               /*if (result.Inventory[i].ItemClass.CompareTo("banner") == 0)
-                               {
-                                   PersistManager.instance.localPlayer.bannerImg = shortName;
-                               }*/
-                           }
-
+                            
                        }
                        else
                        {
@@ -127,9 +117,7 @@ public class PlayfabInit : MonoBehaviour
     }
 
     void getCatalogItems()
-    {
-        ProjectManager.instance.inventory.items.Clear();
-        int hiddenItemCount = 0;
+    { 
         PlayFabClientAPI.GetCatalogItems(new GetCatalogItemsRequest()
         {
 
@@ -143,7 +131,7 @@ public class PlayfabInit : MonoBehaviour
             }
             else
             {
-                Debug.Log("Fetching Catalog " + result.Catalog.Count);
+                //Debug.Log("Fetching Catalog " + result.Catalog.Count);
                 for (int i = 0; i < result.Catalog.Count; i++)
                 {
 
@@ -153,23 +141,11 @@ public class PlayfabInit : MonoBehaviour
 
                     string shortName = result.Catalog[i].ItemId;
                     string tag = result.Catalog[i].ItemClass;
-                    Debug.Log(shortName + " : " + tag);
+                    //Debug.Log(shortName + " : " + tag);
                     
 
                     //
-                    InventoryItem item = new InventoryItem();
-                    item.displayName = result.Catalog[i].DisplayName;
-                    item.rentedTag = result.Catalog[i].ItemClass;
-
-                    ProjectManager.instance.inventory.items.Add(item);
                     
-                    int maxCount = (result.Catalog.Count - 1) - hiddenItemCount;
-                    
-
-                    if (i >= maxCount)
-                    {
-                        //done
-                    }
 
                 }
             }
