@@ -693,11 +693,13 @@ MonoBehaviour:
   m_Value: 0
   m_Options:
     m_Options:
-    - m_Text: Jr Kraken
+    - m_Text: Unassigned
+      m_Image: {fileID: 0}
+    - m_Text: Kraken
       m_Image: {fileID: 0}
     - m_Text: Stingrays
       m_Image: {fileID: 0}
-    - m_Text: Jr Narwahls
+    - m_Text: Jr. Narwharls
       m_Image: {fileID: 0}
     - m_Text: Eels
       m_Image: {fileID: 0}
@@ -4598,7 +4600,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Jr Kraken
+  m_Text: Unassigned
 --- !u!222 &457964920
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -5283,7 +5285,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Kyle Hockey Gear Manager (Beta 0.67)
+  m_Text: Kyle Hockey Gear Manager (Beta 0.68)
 --- !u!222 &520898593
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -11633,8 +11635,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 70.6, y: -93.7}
-  m_SizeDelta: {x: 919.16504, y: 1201.3909}
+  m_AnchoredPosition: {x: 52.18, y: 126.1}
+  m_SizeDelta: {x: 956, y: 1640.98}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1281389550
 MonoBehaviour:
@@ -11687,7 +11689,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Content: {fileID: 1559919605}
-  m_Horizontal: 1
+  m_Horizontal: 0
   m_Vertical: 1
   m_MovementType: 1
   m_Elasticity: 0.1
@@ -11862,7 +11864,7 @@ GameObject:
   - component: {fileID: 1326531269}
   - component: {fileID: 1326531271}
   m_Layer: 5
-  m_Name: PlayerPanel
+  m_Name: PlayerViewOnlyPanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11936,12 +11938,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 1326531267}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 810ece9a59fd03d4bb0605b24ba11809, type: 3}
+  m_Script: {fileID: 11500000, guid: e6e74286f5c0c2c438fa3500f9a91b80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   playerList: {fileID: 1559919605}
-  cellPrefab: {fileID: 575671358183535102, guid: 8a717f22093043141b0461946ce8bea8,
+  cellPrefab: {fileID: 575671358183535102, guid: 067cd88fe12aa7f46ba2543a9989e264,
     type: 3}
+  teamLabel: {fileID: 457964919}
 --- !u!1 &1328369011
 GameObject:
   m_ObjectHideFlags: 0
@@ -13817,7 +13820,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0.000014989284, y: 0.000004080757}
-  m_SizeDelta: {x: -902.16504, y: 0}
+  m_SizeDelta: {x: -939, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1559919606
 MonoBehaviour:
