@@ -11,13 +11,9 @@ public class AthleteManager : MonoBehaviour
     public GameObject cellPrefab;
 
     public GameObject editAthleteUI;
-    //create a person
-    //assign/revoke rental goalie gear
-    //assign/revoke rental skater gear
     //assign/revoke a team
 
     //scroll view of gear they have assigned to them
-    //
 
     void OnEnable()
     {
