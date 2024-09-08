@@ -10,12 +10,21 @@ public class AthleteViewer : MonoBehaviour
     public GameObject cellPrefab;
 
     public Text teamLabel;
+    public GameObject teamRosterView;
+    public GameObject individualAthleteView;
 
     void OnEnable()
     {
         ClientGetUserTitleData();
     }
 
+    public void _clickedViewAthleteGear(string player)
+    {
+        //view gear only
+        teamRosterView.SetActive(false);
+        individualAthleteView.SetActive(true);
+        individualAthleteView.GetComponent<AthleteViewGearOnlyPanel>().setAthleteName(player);
+    }
     void ClientGetUserTitleData()
     {
         foreach (Transform child in playerList.transform)
@@ -39,11 +48,9 @@ public class AthleteViewer : MonoBehaviour
                 string[] getKeys = new string[result.Data.Keys.Count];
                 result.Data.Keys.CopyTo(getKeys, 0);
 
-                //TODO: check for correct team name
-
                 for (int i = 0; i < getKeys.Length; i++)
                 {
-                    Debug.Log("Key: " + getKeys[i] + "/ Data: " + result.Data[getKeys[i]].Value + "  " + teamLabel.text);
+                   // Debug.Log("Key: " + getKeys[i] + "/ Data: " + result.Data[getKeys[i]].Value + "  " + teamLabel.text);
                     if (teamLabel.text.CompareTo(result.Data[getKeys[i]].Value) == 0)
                     {
                         var item_go = Instantiate(cellPrefab);

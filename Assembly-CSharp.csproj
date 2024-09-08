@@ -68,9 +68,11 @@
     <Compile Include="Assets\Scripts\AdminLogIn.cs" />
     <Compile Include="Assets\Scripts\RemoveInventoryItem.cs" />
     <Compile Include="Assets\Scripts\AthleteManager.cs" />
+    <Compile Include="Assets\Scripts\AthleteViewGearOnlyPanel.cs" />
     <Compile Include="Assets\Scripts\AthleteProfile.cs" />
     <Compile Include="Assets\Scripts\SkaterGearManager.cs" />
     <Compile Include="Assets\Scripts\ReturnGearItem.cs" />
+    <Compile Include="Assets\Scripts\ViewGearOnly.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\zxing.unity.dll" />

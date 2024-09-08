@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using PlayFab;
 using PlayFab.ClientModels;
 
@@ -8,6 +9,8 @@ public class ProjectManager : MonoBehaviour
 {
     public static ProjectManager instance;
     public string playfabID;
+    public string VersionID = "0.69";
+    public Text versionText;
 
     private void SingletonFunction()
     {
@@ -29,9 +32,10 @@ public class ProjectManager : MonoBehaviour
 
     void Start()
     {
+       versionText.text = "Kyle Hockey Gear Manager " + VersionID;
     }
     
-
+    //change player's team **
     //grant an item to a player when rented
     //revoke the item when returned
     //list of all players, team (sorting)
@@ -41,7 +45,7 @@ public class ProjectManager : MonoBehaviour
 
     //add gear
 
-    //coaches can view kid & gear assigned
+    //coaches can view athlete & gear assigned
     //one admin for adjusting gear, adjusting players
 
     /*
