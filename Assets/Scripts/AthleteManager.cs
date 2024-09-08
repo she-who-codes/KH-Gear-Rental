@@ -70,21 +70,7 @@ public class AthleteManager : MonoBehaviour
 
                 }
 
-                /*foreach (var item in result.Data)
-                {
-                    
-                    Debug.Log(item.Key + "  " + item.Value);
-                    var item_go = Instantiate(cellPrefab);
-                    // do something with the instantiated item -- for instance
-                    item_go.GetComponentsInChildren<Text>()[0].text = item.Key;
-                    item_go.GetComponentsInChildren<Text>()[1].text = item.Value.ToString();
-                    item_go.name = item.Key;
-                    //parent the item to the content container
-                    item_go.transform.SetParent(playerList);
-                    //reset the item's scale -- this can get munged with UI prefabs
-                    item_go.transform.localScale = Vector2.one;
-                    item_go.transform.localPosition = new Vector3(item_go.transform.position.x, item_go.transform.position.y, 0);
-                }*/
+               
             }
 
             
@@ -92,12 +78,6 @@ public class AthleteManager : MonoBehaviour
         {
             Debug.Log("Got error retrieving user data:");
         });
-
-    }
-
-    //called from the edit ont he scroll view
-    public void OpenProfile()
-    {
 
     }
 }

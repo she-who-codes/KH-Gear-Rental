@@ -65,6 +65,8 @@
      <Compile Include="Assets\Scripts\ProjectManager.cs" />
      <Compile Include="Assets\Scripts\QRReaderScript.cs" />
      <Compile Include="Assets\Scripts\RemoveInventoryItem.cs" />
+     <Compile Include="Assets\Scripts\RentGearItem.cs" />
+     <Compile Include="Assets\Scripts\ReturnGearItem.cs" />
      <Compile Include="Assets\Scripts\SimpleJSON.cs" />
      <Compile Include="Assets\Scripts\SkaterGearManager.cs" />
  <Reference Include="Unity.TextMeshPro.Editor">

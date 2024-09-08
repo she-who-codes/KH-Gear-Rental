@@ -16,7 +16,7 @@ public class RemoveInventoryItem : MonoBehaviour
 
     public void removeItem()
     {
-        Debug.Log("set item to 0" + gameObject.name);
+       // Debug.Log("set item to 0" + gameObject.name);
         PlayFabServerAPI.SetTitleData(
             new SetTitleDataRequest
             {
