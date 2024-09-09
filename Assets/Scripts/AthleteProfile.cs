@@ -170,8 +170,12 @@ public class AthleteProfile : MonoBehaviour
                                 if (item.Value.Contains(playerName.text) == true)
                                 {
                                         var item_go = Instantiate(returnableCellPrefab);
-                                        // do something with the instantiated item -- for instance
-                                        item_go.GetComponentInChildren<Text>().text = item.Value;
+                                    // do something with the instantiated item -- for instance
+                                    string gearItem = item.Value;
+                                    Debug.Log(" -----> " + gearItem);
+                                    gearItem = gearItem.Remove(gearItem.LastIndexOf("/RENTED/") + 1);
+
+                                    item_go.GetComponentInChildren<Text>().text = gearItem;
                                         item_go.name = item.Key;
                                         //parent the item to the content container
                                         item_go.transform.SetParent(rentedGearList);
