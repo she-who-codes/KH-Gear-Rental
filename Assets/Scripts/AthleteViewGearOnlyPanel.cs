@@ -52,8 +52,10 @@ public class AthleteViewGearOnlyPanel : MonoBehaviour
                                 if (item.Value.Contains(athleteNameText.text) == true)
                                 {
                                     var item_go = Instantiate(viewGearOnlyCellPrefab);
-                                    // do something with the instantiated item -- for instance
-                                    item_go.GetComponentInChildren<Text>().text = item.Value;
+
+                                    string gearItem = item.Value;
+                                    gearItem = gearItem.Remove(gearItem.LastIndexOf("/RENTED/") + 1);
+                                    item_go.GetComponentInChildren<Text>().text = gearItem;
                                     item_go.name = item.Key;
                                     //parent the item to the content container
                                     item_go.transform.SetParent(gearList);
