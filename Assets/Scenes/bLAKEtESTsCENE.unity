@@ -1911,7 +1911,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playfabID: 
-  VersionID: ' (Beta 0.70)'
+  VersionID: ' (Beta 0.80)'
   versionText: {fileID: 520898592}
   allTeamdowns:
   - {fileID: 37644592}
